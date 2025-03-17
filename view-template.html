@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Shayari</title>
+  <link rel="stylesheet" href="view-template.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Button <span id="buttonId"></span></h1>
+    <p>This is the page for Button <span id="buttonIdText"></span>.</p>
+    <div class="shayari" id="shayari"></div>
+    <a href="index.html" class="back-btn">Back to Button Grid</a>
+  </div>
+
+  <script>
+    // Extract the button ID and shayari from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const buttonId = urlParams.get('id');
+    let shayari = decodeURIComponent(urlParams.get('shayari'));
+
+    // Check if there's a saved shayari in localStorage
+    const savedShayari = localStorage.getItem(`shayari-${buttonId}`);
+    if (savedShayari) {
+      shayari = savedShayari;
+    }
+
+    // Display the button ID and shayari on the page
+    document.getElementById('buttonId').textContent = buttonId;
+    document.getElementById('buttonIdText').textContent = buttonId;
+    document.getElementById('shayari').textContent = shayari;
+  </script>
+</body>
+</html>

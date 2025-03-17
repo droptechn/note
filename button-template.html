@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Page</title>
+  <link rel="stylesheet" href="button-template.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Button <span id="buttonId"></span></h1>
+    <p>This is the page for Button <span id="buttonIdText"></span>.</p>
+    <div class="shayari" id="shayari"></div>
+    <div class="edit-mode" id="editMode">
+      <textarea id="shayariInput" placeholder="Enter your shayari here..."></textarea>
+      <button class="save-btn" id="saveBtn">Save Shayari</button>
+    </div>
+    <div class="button-group">
+      <button id="editBtn">Edit Shayari</button>
+      <a href="index.html">Back to Button Grid</a>
+    </div>
+  </div>
+
+  <script>
+    // Extract the button ID and shayari from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const buttonId = urlParams.get('id');
+    let shayari = decodeURIComponent(urlParams.get('shayari'));
+
+    // Check if there's a saved shayari in localStorage
+    const savedShayari = localStorage.getItem(`shayari-${buttonId}`);
+    if (savedShayari) {
+      shayari = savedShayari;
+    }
+
+    // Display the button ID and shayari on the page
+    document.getElementById('buttonId').textContent = buttonId;
+    document.getElementById('buttonIdText').textContent = buttonId;
+    document.getElementById('shayari').textContent = shayari;
+
+    // Edit functionality
+    const editBtn = document.getElementById('editBtn');
+    const editMode = document.getElementById('editMode');
+    const shayariInput = document.getElementById('shayariInput');
+    const saveBtn = document.getElementById('saveBtn');
+
+    editBtn.addEventListener('click', () => {
+      editMode.style.display = 'block';
+      shayariInput.value = shayari;
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const updatedShayari = shayariInput.value.trim();
+      if (updatedShayari) {
+        shayari = updatedShayari;
+        document.getElementById('shayari').textContent = shayari;
+        localStorage.setItem(`shayari-${buttonId}`, shayari); // Save to localStorage
+        editMode.style.display = 'none';
+      } else {
+        alert('Please enter a valid shayari.');
+      }
+    });
+  </script>
+</body>
+</html>

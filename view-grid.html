@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Button Grid</title>
+  <link rel="stylesheet" href="view-grid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Button Grid</h1>
+    <div class="button-grid" id="buttonGrid">
+      <!-- Buttons will be dynamically generated here -->
+    </div>
+  </div>
+
+  <script>
+    // Array of shayaries
+    const shayaries = [
+      "Dil ki baat labon tak na aane paayi, Ek arsa guzar gaya muskurate hue.",
+      "Zindagi mein kuch pal hote hain jo yaadgar ho jaate hain, Woh pal humesha dil mein rehte hain.",
+      "Mohabbat ek aisi dastaan hai, Jo har dil ko behlaati hai.",
+      "Dil ki gehraaiyon se nikli hai yeh duaa, Tum muskurao toh phool khil jaaye.",
+      "Zindagi ek safar hai suhana, Yahan har mod par naye rang hain.",
+      // Add more shayaries as needed...
+    ];
+
+    // Generate buttons dynamically
+    const buttonGrid = document.getElementById('buttonGrid');
+    const startId = 24701;
+    const totalButtons = 80;
+
+    for (let i = 0; i < totalButtons; i++) {
+      const buttonId = startId + i;
+      const button = document.createElement('button');
+      button.id = buttonId;
+      button.textContent = `Button ${buttonId}`;
+
+      // Add a link to the view-template.html page for each button
+      button.addEventListener('click', () => {
+        const shayari = shayaries[i % shayaries.length]; // Cycle through shayaries
+        window.location.href = `view-template.html?id=${buttonId}&shayari=${encodeURIComponent(shayari)}`;
+      });
+
+      buttonGrid.appendChild(button);
+    }
+  </script>
+</body>
+</html>

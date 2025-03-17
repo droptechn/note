@@ -1,0 +1,150 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .shayari {
+    font-style: italic;
+    color: #333;
+    font-size: 1.5rem;
+    margin: 30px 0;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .shayari:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .button-group a,
+  .button-group button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button-group a {
+    background-color: #007bff;
+  }
+  
+  .button-group a:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .button-group button {
+    background-color: #ffc107;
+  }
+  
+  .button-group button:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+  }
+  
+  /* Edit Mode */
+  .edit-mode {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .edit-mode textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    margin-top: 20px;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .edit-mode textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  .edit-mode .save-btn {
+    background-color: #28a745;
+    margin-top: 15px;
+  }
+  
+  .edit-mode .save-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .shayari {
+      font-size: 1.2rem;
+      padding: 20px;
+    }
+  
+    .button-group a,
+    .button-group button {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+  
+    .edit-mode textarea {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
